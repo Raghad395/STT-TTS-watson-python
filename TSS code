@@ -1,0 +1,14 @@
+
+from gtts import gTTS
+import os
+
+mytext = 'hi testing 123'
+language = 'en'
+
+myobj1 = gTTS(text=mytext, lang=language, slow=False)
+
+# save TTS as mp3 file
+   myobj1.save("speech.mp3")
+   
+# Playing the mp3 file
+  os.system("speech.mp3")
