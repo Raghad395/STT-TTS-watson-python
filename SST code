@@ -1,0 +1,21 @@
+# NOTE: this example requires PyAudio to use the Microphone 
+
+import speech_recognition as sr
+
+rObject = sr.Recognizer() 
+audio = '' 
+
+with sr.Microphone() as source: 
+    print("Speak...")   
+    audio = rObject.listen(source, phrase_time_limit = 0) 
+    print("Stop.")
+    
+    try: 
+        text = rObject.recognize_google(audio, language ='en-US') 
+        print("You : "+ text)  
+    except: 
+        speak("Could not understand your audio...PLease try again !") 
+        
+# save STT as txt file 
+      with open('Output.txt', 'w') as out:
+      out.writelines(text)  
